@@ -1,0 +1,14 @@
+.b-list {
+  width: 100%;
+  margin-bottom: 1.2rem;
+  &-item {
+    display: block;
+    height: 2.6rem;
+    margin-bottom: 0.2rem;
+    background-color: $std_sub_8;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

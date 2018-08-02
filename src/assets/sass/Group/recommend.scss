@@ -1,0 +1,81 @@
+.t-grouplist {
+  width: 100%;
+  margin-top: 0.92rem;
+  margin-bottom: 1.2rem;
+  text-align: left;
+  box-sizing: border-box;
+  &-item {
+    margin-bottom: 0.2rem;
+    display: block;
+    padding: 0.02rem;
+    box-sizing: border-box;
+    background-color: $std_sub_8;
+    .cover {
+      width: 100%;
+      text-align: center;
+      position: relative;
+      img {
+        width: 3rem;
+        height: 3rem;
+      }
+      .comment {
+        position: absolute;
+        left: -0.2rem;
+        bottom: 0;
+        border: 0.02rem solid $std_sub_4;
+        border-top-right-radius: 0.4rem;
+        border-bottom-right-radius: 0.4rem;
+        padding: 0.05rem;
+      }
+    }
+    .content {
+      width: 100%;
+      position: relative;
+      padding: 0 0.2rem;
+      box-sizing: border-box;
+      &-desc {
+        padding: 0.2rem 0;
+        .group {
+          color: $std_main_A;
+        }
+      }
+      &-price {
+        position: relative;
+        .price {
+          float: left;
+          color: $std_sub_2;
+          .new {
+            color: $std_main_A;
+          }
+          .old {
+            color: $std_sub_2;
+            margin-left: 0.2rem;
+            position: relative;
+            &::after {
+              content: '';
+              width: 100%;
+              height: 0.04rem;
+            background-color: $std_sub_2;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 40%;
+          }
+        }
+      }
+      .btn {
+        width: 1.5rem;
+        height: 0.5rem;
+        line-height: 0.5rem;
+        text-align: center;
+        float: right;
+        border-radius: 0.5rem;
+        color: $std_sub_8;
+        background-color: $std_main_A;
+      }
+    }
+  }
+  }
+  
+  
+}

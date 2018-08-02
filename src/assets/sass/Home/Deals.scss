@@ -1,0 +1,12 @@
+.t-deals {
+  width: 100%;
+  margin-top: 0.92rem;
+  padding-top: 0.3rem;
+  background-color: $std_sub_8;
+  &-item {
+    width: 25%;
+    display: inline-block;
+    text-align: center;
+
+  }
+}

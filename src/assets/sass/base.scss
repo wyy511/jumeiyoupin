@@ -1,0 +1,15 @@
+@import './reset.scss';
+@import './theme.scss';
+@import './font.scss';
+@import './mixins/Bnav.scss';
+@import './mixins/Tnav.scss';
+@import './Home/index.scss';
+@import './Group/index.scss';
+body, html {
+  background-color: $std_sub_7;
+}
+.clearfix:after {
+  content:""; 
+  display: block; 
+  clear:both; 
+}

@@ -2,9 +2,16 @@
   "name": "jumeiyoupin",
   "version": "0.1.0",
   "private": true,
+  "proxy": {
+    "/api": {
+      "target": "http://h5.jumei.com",
+      "changeOrigin": true
+    }
+  },
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4"
   },
   "scripts": {
@@ -12,5 +19,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "mockjs": "^1.0.1-beta3",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3"
   }
 }
