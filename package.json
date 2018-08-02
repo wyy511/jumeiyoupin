@@ -24,6 +24,7 @@
     "axios": "^0.18.0",
     "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.9.2",
+    "react-native-swiper": "^1.5.13",
     "sass-loader": "^7.0.3"
   }
 }

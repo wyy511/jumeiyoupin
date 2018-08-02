@@ -43,7 +43,6 @@ class App extends Component {
   getList () {
     axios.get(`/api/freeduty`)
     .then((res) => {
-      console.log(res);
       this.setState({
         deals: res.data.dealList,
         goodList: res.data.goodList

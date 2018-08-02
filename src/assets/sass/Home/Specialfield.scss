@@ -1,0 +1,43 @@
+.b-specialfield {
+  width: 100%;
+  background-color: $std_sub_8;
+  margin-bottom: 1.2rem;
+  &-item {
+    width: 100%;
+    .cover {
+      width: 100%;
+      height: 3.75rem;
+      position: relative;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      .price {
+        position: absolute;
+        left: 0;
+        bottom: 0.2rem;
+        background: #000;
+        color: $std_sub_7;
+        padding: 0.05rem;
+        font-weight: 100;
+      }
+    }
+    .content {
+      width: 100%;
+      padding: 0.2rem;
+      box-sizing: border-box;
+      text-align: left;
+      .desc {
+        float: left;
+        .time {
+          color: $std_sub_2;
+        }
+      }
+      .logo {
+        float: right;
+        width: 1.44rem;
+        height: 0.72rem;
+      }
+    }
+  }
+}
