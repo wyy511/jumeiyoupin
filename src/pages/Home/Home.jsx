@@ -5,6 +5,7 @@ import Tnav from '../../components/Tnav';
 import '../../mock/home.js';
 import Tab from './mixins/Tab'
 import List from './mixins/List'
+import ScrollLoad from '../../components/ScrollLoad';
 class App extends Component {
   constructor (props) {
     super(props);
@@ -33,21 +34,43 @@ class App extends Component {
       ],
       list: [],
       todayList: [],
-      tomorrowList: []
-
+      tomorrowList: [],
+      scrollTextStatus: -1,
+      // true滚动请求中 false请求结束
+      isAppending: false,
+      // count用来测试滚动了几次停止
+      count: 0
     }
   }
   componentDidMount () {
+    this._isMounted = true;
     this.getList();
   }
+  componentWillUnmount () {
+    this._isMounted = false;
+  }
   getList () {
+    this.setState({
+      isAppending: true,
+      scrollTextStatus: 0
+    })
     axios.get(`/api/home`)
     .then((res) => {
-      this.setState({
-        list: res.data.todayList,
-        todayList: res.data.todayList,
-        tomorrowList: res.data.tomorrowList
-      })
+      if (this._isMounted && this.state.count <= 10) {
+        this.setState({
+          isAppending: false,
+          list: this.state.todayList.concat(res.data.todayList),
+          todayList: this.state.todayList.concat(res.data.todayList),
+          tomorrowList: this.state.todayList.concat(res.data.tomorrowList),
+          count: this.state.count + 1
+        })
+      } else {
+        this.setState({
+          scrollTextStatus: 2
+        })
+      }
+    }, (err) => {
+      console.log(err);
     })
   }
   tabChange (type) {
@@ -55,13 +78,30 @@ class App extends Component {
       list: this.state[type+'List']
     })
   }
+  reachEnd () {
+    if (this.state.isAppending) {
+      return;
+    }
+    if (this._isMounted) {
+      this.setState({
+        isAppending: true
+      })
+      this.getList();
+    }
+  }
   render() {
     // const pathname = this.props.location.pathname;
     return (
       <div className="App">
-        <Tnav navlist={ this.state.navlist }/>
-        <Tab tabChange={ this.tabChange.bind(this) }/>
-        <List list={ this.state.list }/>
+        <ScrollLoad
+          beforeDistance={ 100 }
+          reachEnd={ this.reachEnd.bind(this) }
+          status={this.state.scrollTextStatus}
+        >
+          <Tnav navlist={ this.state.navlist }/>
+          <Tab tabChange={ this.tabChange.bind(this) }/>
+          <List list={ this.state.list } listBottom="0.4rem"/>
+        </ScrollLoad>
       </div>
     );
   }

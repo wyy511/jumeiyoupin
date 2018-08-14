@@ -16,14 +16,14 @@ class App extends Component {
               <div className="title">{ item.title }</div>
               <div className="time font-22">仅剩{ item.day > 9 ? item.day : '0' + item.day }天 { item.hour > 9 ? item.hour : '0' + item.hour }时 { item.min > 9 ? item.min : '0' + item.min }分</div>
             </div>
-            <img className="logo" src={ item.logo }/>
+            <img className="logo" src={ item.logo } alt=""/>
           </div>
           
         </NavLink>
       )
     })
     return (
-      <section className="b-specialfield clearfix" style={{marginTop: this.props.listTop}}>
+      <section className="b-specialfield clearfix" style={{marginTop: this.props.listTop, marginBottom: this.props.listBottom}}>
         { list }
       </section>
     );
